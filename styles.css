@@ -4,5 +4,6 @@ body {
 
 p {
     color: #FFFFFF;
-    font-size: 18;
+    font-size: 25;
+    font: helvetica;
 }
