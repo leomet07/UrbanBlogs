@@ -1,9 +1,19 @@
 body {
-    background-color: #694D64;
+    background-color: #33303A;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 40px;
+    line-height: 35px;
+    text-align: center;
 }
 
 p {
     color: #FFFFFF;
-    font-size: 25;
-    font: helvetica;
+    font-family: helvetica;
+    font-size: 24px;
+    line-height: 5px;
+    text-align: center;
 }
