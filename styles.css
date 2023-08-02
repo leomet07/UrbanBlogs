@@ -6,8 +6,8 @@ body {
 h1 {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 2.5em;
-    line-height: .6em;
+    font-size: 40px;
+    line-height: 20px;
     text-align: center;
 }
 
@@ -15,8 +15,8 @@ h1 {
 h2 {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 1.5em;
-    line-height: 1em;
+    font-size: 25px;
+    line-height: 25px;
     text-align: center;
 }
 
@@ -24,18 +24,18 @@ h2 {
 h3 {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 20px;
+    line-height: 25px;
     text-align: center;
-    margin: 0.75em;
+    margin: 15px;
 }
 
 /* Tiny Header: Dates & Smaller Article Details */
 h4 {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 1em;
-    line-height: 1.5em;
+    font-size: 16px;
+    line-height: 25px;
     text-align: center;
 }
 
@@ -43,10 +43,10 @@ h4 {
 p {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 0.8em;
-    line-height: 1.5em;
+    font-size: 16px;
+    line-height: 20px;
     text-align: center;
-    margin: 2em;
+    margin: 25px;
 }
 
 /* Links */
@@ -57,11 +57,13 @@ a {
 /* When I want no linebreak space */
 .no_br {
     display: block;
-    margin-top: -0.7em;
+    margin-top: -10px;
 }
 
 /* When I want stuff at the bottom of the page */
 .bottom_content {
+    /* text-align: center; */
     position: fixed;
     bottom: 0px;
+    width: 93%;
 }
