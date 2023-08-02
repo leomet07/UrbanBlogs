@@ -25,7 +25,7 @@ h3 {
     color: #FFFFFF;
     font-family: helvetica;
     font-size: 20px;
-    line-height: 25px;
+    line-height: 35px;
     text-align: center;
     margin: 15px;
 }
@@ -39,13 +39,22 @@ h4 {
     text-align: center;
 }
 
+/* Subject Header: Intros to Paragraphs */
+h5 {
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 17px;
+    line-height: 25px;
+    margin: 15px;
+}
+
 /* Standard Text */
 p {
     color: #FFFFFF;
     font-family: helvetica;
     font-size: 16px;
     line-height: 20px;
-    margin: 25px;
+    margin: 15px;
 }
 
 /* Links */
