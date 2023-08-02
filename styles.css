@@ -1,19 +1,46 @@
 body {
-    background-color: #33303A;
+    background-color: #190a1c;
 }
 
 h1 {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 40px;
-    line-height: 35px;
+    font-size: 2.5em;
+    line-height: .85em;
     text-align: center;
 }
 
-p {
+h2 {
     color: #FFFFFF;
     font-family: helvetica;
-    font-size: 24px;
-    line-height: 5px;
+    font-size: 1.5em;
+    line-height: 1.25em;
     text-align: center;
+}
+
+h3 {
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 1.3em;
+    line-height: 1.4em;
+    text-align: center;
+    margin: 2em;
+}
+
+h4 {
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: center;
+    margin: 2em;
+}
+
+a {
+    color: #de7ddc;
+}
+
+.no_br {
+    display: block;
+    margin-top: -1.3em;
 }
