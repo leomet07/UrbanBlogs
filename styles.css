@@ -62,7 +62,7 @@ a {
 
 /* When I want stuff at the bottom of the page */
 .bottom_content {
-    /* text-align: center; */
+    text-align: center;
     position: fixed;
     bottom: 0px;
     width: 93%;
