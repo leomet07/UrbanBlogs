@@ -2,6 +2,7 @@ body {
     background-color: #190a1c;
 }
 
+/* Largest header: Website Titles */
 h1 {
     color: #FFFFFF;
     font-family: helvetica;
@@ -10,6 +11,7 @@ h1 {
     text-align: center;
 }
 
+/* Next Largest Header: Article Titles */
 h2 {
     color: #FFFFFF;
     font-family: helvetica;
@@ -18,29 +20,48 @@ h2 {
     text-align: center;
 }
 
+/* Smaller "Header": Article Descriptions */
 h3 {
     color: #FFFFFF;
     font-family: helvetica;
     font-size: 1.3em;
-    line-height: 1.4em;
+    line-height: 1.5em;
     text-align: center;
-    margin: 2em;
+    margin: 0.75em;
 }
 
+/* Tiny Header: Dates & Smaller Article Details */
 h4 {
     color: #FFFFFF;
     font-family: helvetica;
     font-size: 1em;
     line-height: 1.5em;
     text-align: center;
+}
+
+/* Standard Text */
+p {
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    text-align: center;
     margin: 2em;
 }
 
+/* Links */
 a {
     color: #de7ddc;
 }
 
+/* When I want no linebreak space */
 .no_br {
     display: block;
-    margin-top: -1.3em;
+    margin-top: -0.7em;
+}
+
+/* When I want stuff at the bottom of the page */
+.bottom_content {
+    position: fixed;
+    bottom: 0px;
 }
