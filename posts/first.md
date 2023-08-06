@@ -58,11 +58,11 @@ Regional Rail - I didn't try it (sorry Marc)
 
 Amtrak Service/Station - I have... a few issues with my Union Station experience here, as I imagine most people taking rail cross-country in the USA can attest.
 
-1.  Trains at this station alternate between diesel to the south and electrified to the north. Any through-running DC train must switch crews, locomotives, and dwell on-station for a half hour through the process.
+1. Trains at this station alternate between diesel to the south and electrified to the north. Any through-running DC train must switch crews, locomotives, and dwell on-station for a half hour through the process.
     
-2.  Through-running is commonplace, and worsens the effects of crew and passenger fatigue, forcing crews to switch mid-trip and leaves trains crowded, making them harder to board and find seats in.
+2. Through-running is commonplace, and worsens the effects of crew and passenger fatigue, forcing crews to switch mid-trip and leaves trains crowded, making them harder to board and find seats in.
     
-3.  The spatial physics of Washington Union just plain does not work. Comparably annoying Moynihan Train Hall is wide, spacious, and provides ample space for passengers lining up to board regional trains down the long escalators. Cut back to Union, and hundreds are lining up against a door that is narrower and more poorly marked than the door to my college dorm room. People repeatedly find themselves lost due to poor markings (**_why does a train station need gates?????_**) and fights break out when passengers squeeze through the makeshift line into the meager door.
+3. The spatial physics of Washington Union just plain does not work. Comparably annoying Moynihan Train Hall is wide, spacious, and provides ample space for passengers lining up to board regional trains down the long escalators. Cut back to Union, and hundreds are lining up against a door that is narrower and more poorly marked than the door to my college dorm room. People repeatedly find themselves lost due to poor markings (**_why does a train station need gates?????_**) and fights break out when passengers squeeze through the makeshift line into the meager door.
     
 4.  All of these three conditions combine to make Washington Union a notorious hotbed for delays. This is anecdotal, but another group of ours, having had to take an earlier train due to the younger students onboard, waited at Union for two and a half hours past the scheduled depart time. What did they do? Not much besides sit in a chair, of which there are plenty, no thanks to how infamously behind schedule trains are at this station. A late train just before us having only recently left, our Amtrak Northeast Regional 128 back to New York had to board at full capacity before even leaving D.C.
     
