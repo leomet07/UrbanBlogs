@@ -1,60 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #0A0E1C;
+    color: #FFFFFF;
+    font-family: helvetica;
 }
 
 /* Largest header: Website Titles */
 h1 {
-    color: #FFFFFF;
-    font-family: helvetica;
     font-size: 40px;
-    line-height: 45px;
-    text-align: center;
 }
 
 /* Next Largest Header: Article Titles */
 h2 {
-    color: #FFFFFF;
-    font-family: helvetica;
     font-size: 30px;
-    line-height: 25px;
-    text-align: center;
 }
 
 /* Smaller "Header": Article Descriptions */
 h3 {
-    color: #FFFFFF;
-    font-family: helvetica;
     font-size: 25px;
-    line-height: 35px;
-    text-align: center;
-    margin: 15px;
 }
 
 /* Tiny Header: Dates & Smaller Article Details */
 h4 {
-    color: #FFFFFF;
-    font-family: helvetica;
     font-size: 16px;
-    line-height: 25px;
+}
+
+h1, h2, h3, h4 {
     text-align: center;
 }
 
 /* Subject Header: Intros to Paragraphs */
 h5 {
-    color: #FFFFFF;
-    font-family: helvetica;
     font-size: 20px;
-    line-height: 25px;
-    margin: 25px;
 }
 
 /* Standard Text */
 p {
-    color: #FFFFFF;
-    font-family: helvetica;
     font-size: 19px;
-    line-height: 20px;
-    margin: 25px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-block: 10px;
 }
 
 /* Links */
@@ -64,8 +55,9 @@ a {
 
 /* When I want no linebreak space */
 .no_br {
+    margin-block : 0;
+    margin-top : -10px;
     display: block;
-    margin-top: -10px;
 }
 
 /* When I want stuff at the bottom of the page */
@@ -73,5 +65,9 @@ a {
     text-align: center;
     position: fixed;
     bottom: 0px;
-    /* width: 90%; */
+    width: calc(100% - 50px);
+}
+
+main {
+    margin-inline: 25px;
 }
