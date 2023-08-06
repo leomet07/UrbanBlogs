@@ -1,5 +1,3 @@
-    D.C. Review
-
 Washington, Douglas Commonwealth
 ================================
 
