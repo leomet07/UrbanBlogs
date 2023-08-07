@@ -3,7 +3,7 @@ title: 'DC - A City With Good Bones'
 description: "A vibrant metropolis with a diverse array of landmarks, museums, and locales, Washington D.C. has the potential to become one of America's--perhaps the world's--greatest cities. But it has work to do."
 ---
 
-<!-- <meta name="description" content="A vibrant metropolis with a diverse array of landmarks, museums, and locales, Washington D.C. has the potential to become one of America's--perhaps the world's--greatest cities. But it has work to do."> -->
+<meta name="description" content="A vibrant metropolis with a diverse array of landmarks, museums, and locales, Washington D.C. has the potential to become one of America's--perhaps the world's--greatest cities. But it has work to do.">
 
 #### [Why don't you go back?](/..)
 
