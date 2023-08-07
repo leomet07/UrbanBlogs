@@ -1,13 +1,9 @@
-[Why don't you go back?](/..)
------------------------------
+#### [Why don't you go back?](/..)
 
-Washington, Douglas Commonwealth
-================================
 
-A City With Good Bones
-----------------------
+##### Washington, Douglas Commonwealth - A City With Good Bones
 
-### A vibrant metropolis with a diverse array of landmarks, museums, and locales, Washington D.C. has the potential to become one of America's--perhaps the world's--greatest cities. But it has work to do.
+##### A vibrant metropolis with a diverse array of landmarks, museums, and locales, Washington D.C. has the potential to become one of America's--perhaps the world's--greatest cities. But it has work to do.
 
 ##### July 16, 2023: 7:00 PM, M Street & 33rd Street, Georgetown:
 
@@ -80,5 +76,4 @@ While DC has a lot of wounds and scabs, it is a city with good bones.
 
 I'll see you down the Atlantic some other time, my landmark-studded friend.
 
-[Why don't you go back?](/..)
------------------------------
+#### [Why don't you go back?](/..)

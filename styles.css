@@ -8,6 +8,7 @@ body {
     background-color: #0A0E1C;
     color: #FFFFFF;
     font-family: helvetica;
+    margin-inline: 25px;
 }
 
 /* Largest header: Website Titles */
@@ -27,7 +28,7 @@ h3 {
 
 /* Tiny Header: Dates & Smaller Article Details */
 h4 {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 h1, h2, h3, h4 {
@@ -45,7 +46,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6, p, li {
-    margin-block: 10px;
+    margin-block: 35px;
 }
 
 /* Links */
@@ -56,21 +57,23 @@ a {
 /* When I want no linebreak space */
 .no_br {
     margin-block : 0;
-    margin-top : -10px;
+    margin-top : -30px;
     display: block;
 }
 
 /* When I want stuff at the bottom of the page */
-.bottom_content {
+/* .bottom_content {
     text-align: center;
     position: fixed;
     bottom: 0px;
-    width: calc(100% - 50px);
+    width: (50em-50px);
+} */
+
+main { 
+    max-width: 50em;
+    margin: 0px auto;
 }
 
-main {
-    margin-inline: 25px;
-}
 
 /* Fix list element default overflow */
 
