@@ -54,11 +54,13 @@ a {
     color: #7DA9DE;
 }
 
-/* When I want no linebreak space */
-.no_br {
+/* When I want no margin */
+.no_margin {
     margin-block : 0;
-    margin-top : -30px;
-    display: block;
+}
+
+.no_bottom_margin{
+    margin-bottom: 0;
 }
 
 /* When I want stuff at the bottom of the page */
