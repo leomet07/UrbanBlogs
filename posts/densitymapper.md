@@ -52,4 +52,41 @@ I went to some random block in Park Slope, between 4th and 5th Streets and 5th a
 
 After several minutes of breaking my fingers on my phone's calculator and browser, I arrived at 69.5 units per acre (nice).
 
+I then imagined how nice it would be to have data on ALL such blocks, in a nice looking map, showing the density gradient of New York's urban fabric in the most detailed possible way.
+
+But I thought to myself: "How is this going to be even **NEARLY** scaleable? There's hundreds of thousands of blocks and MILLIONS of lots..."
+
+I had to make some sort of systematic solution to quickly process every lot in every block if I wanted a map of NYC that takes a few seconds or minutes to make, and not a few years. And what better way to convert huge data into visuals fast than using code?
+
+##### The Data Mason... What Does it Mean???
+
+First things first, I had to get the data from ZoLa somehow if I wanted to do anything systematic in making a map of NYC's density. No matter what kind of godly code I write, it will be useless without a clean and fast way to get data for every lot in the city.
+
+I won't make this very long because, ultimately, this is an urban planning blog, not a programming blog. That's my other major's problem. Essentially, I used the same data request from the NYC planning department's database that ZoLa uses. If we want data from databases, there are two important things to keep in mind: permission, and method.
+
+An [API](https://en.wikipedia.org/wiki/API), or an Application Programming Interface, connects two programs, and more importantly for us, _their data._ This is generally how services connect you, the user, to the data that you may want, in their servers. When ZoLa makes a request to access the NYC planning department's data on a particular lot, it does so using an API.
+
+This particular database is written, and more importantly for us, _accessible_, in [SQL](https://en.wikipedia.org/wiki/SQL). This is a programming language meant to store information, so many databases use it.
+
+Combining our two important aspects of database use, permission and method, we have deduced that we will need to make an API request with a SQL query.
+
+[Here's a longer form](https://github.com/doke05c/NYCDensityMapper/blob/main/guides/data_collection/data_collection_instructions.md) of what I'm about to summarize, and I could not have done this without a friend of mine, a fellow [David](https://github.com/TheEgghead27).
+
+He discovered that upon using Inspect Element, a tool to see how a webpage is wrriten and styled, one can actually see the API request with the SQL queries in the Network view. After modifying the queries a little bit and playing with the results in Insomnia, a program that streamlines the API process, we were able to make a Python program: a request that captures all lot data in the city. We ran it with one command in our computer's terminal, and it downloaded all the data in under a minute.
+
+I had to clean up some of this data at first, because it was primarily filled with inaccuracies. My favorite of these were buildings that were obviously not as dense as they claimed to be. My favorite of these favorites was the error surrounding 23-15 44th Drive, AKA the Court Square Skyline Tower, a luxury 68-floor apartment skyscraper. 
+
+![Skyline Tower](/assets/images/2_skylinetower.jpg)
+
+Notice how many residential units ZoLa claims this building to have.
+
+![Zola Skyline Tower](/assets/images/2_zola3.png)
+
+19201, while impressive-sounding at first, does not make ANY sense when you think about it for more than two milliseconds. How the hell do you get upwards of 200 units per floor? Not even the infamous tenements of Five Points got this dense, and this is **luxury** housing. No, [in reality](https://en.wikipedia.org/wiki/Skyline_Tower_(Queens)), this tower has about 800 condos in its 68 floors, amounting to about 12 units per floor, about reasonable for a standard apartment building. 
+
+Some other buildings, such as those in the Bronx and Manhattan make this error, some of which I was able to catch before final production, and some of which I will never know if they're mistakes. It would be _slightly_ counterproductive to fact-check the number of units of each building of every block. Wasn't the point of this to have my code count these things for me automatically?
+
+Anyhow, there was also the thing of random parks melding themselves into blocks with actual residential density, causing the entire block to have what appeared to be an abysmal total density. At the same time, it also made it appear such that a park somehow had housing in it at all. I obviously wanted neither of these things, so wherever I could, I changed the block number of these parks to a different, unused one, to isolate them from the residential blocks they should never have been in in the first place.
+
+
 #### [Why don't you go back?](/..)
