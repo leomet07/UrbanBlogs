@@ -10,9 +10,12 @@ description: "Using Python, SQL, and ZoLa, I made a map of NYC's housing density
 
 ##### Using Python, SQL, and ZoLa, I made a map of NYC's housing density by the block, with some interesting results. See my creation process, and some thoughts on the changes happening--and the changes that should be happening--in New York's density.
 
+##### [Skip Here for the Maps](/posts/densitymapper/#the-results)
+##### <a href="/posts/densitymapper/#the-results" >Skip Here for the Maps</a>
+
 It all began when I was reading Vishaan Chakrabarti's _A Country of Cities_ and saw a passage from his talk of hyperdensity that piqued my interest. It went something along the lines of "strong cities with reliable metro transit cannot work unless they achieve a density of 30 residential units per acre", and of course, on the other side of the page was a cute graphic of what 30 units per acre could look like on a city block. 
 
-My immediate first thought was, "that seems a little unfair, doesn't it? 30 might not be a possible density for many urban blocks." Not knowing anything about how dense an average city block was, or what the hell an acre was (I still don't really know what an acre is), I thought that this was a brash, extreme request.
+My immediate first thought was, "that seems a little unfair, doesn't it? 30 might not be a possible density for many urban blocks." Not knowing anything about how dense an average city block was, or what the hell an acre was (I still don't really know what an acre is), I thought that this was a brash, extreme request. I decided that I wanted to look into this myself.
 
 **SPOILER: I WOULD BE IMMENSELY, INSANELY WRONG. You'll see what I think should be minimum urban density by the end of this post.**
 
@@ -62,7 +65,7 @@ I had to make some sort of systematic solution to quickly process every lot in e
 
 First things first, I had to get the data from ZoLa somehow if I wanted to do anything systematic in making a map of NYC's density. No matter what kind of godly code I write, it will be useless without a clean and fast way to get data for every lot in the city.
 
-I won't make this very long because, ultimately, this is an urban planning blog, not a programming blog. That's my other major's problem. Essentially, I used the same data request from the NYC planning department's database that ZoLa uses. If we want data from databases, there are two important things to keep in mind: permission, and method.
+I won't make this very long because there is, in fact, a longer, more detailed guide available. Essentially, I used the same data request from the NYC planning department's database that ZoLa uses. If we want data from databases, there are two important things to keep in mind: permission, and method.
 
 An [API](https://en.wikipedia.org/wiki/API), or an Application Programming Interface, connects two programs, and more importantly for us, _their data._ This is generally how services connect you, the user, to the data that you may want, in their servers. When ZoLa makes a request to access the NYC planning department's data on a particular lot, it does so using an API.
 
@@ -104,8 +107,172 @@ As it goes with most technical projects, the code is 20% of the content and 80% 
 
 The code, as it's completed now, appears quite simple. There are four major components to it: the central data structure, color coding, the calculations, and the rendering.
 
-#### 1. Our Central Data Structure: What is a Super-Dictionary?
+##### 1. Our Central Data Structure: What is a Super-Dictionary?
 
-Let's start with a regular dictionary. Just like in any standard linguistic dictionary
+Let's start with a regular dictionary. Just like in any standard linguistic dictionary, a dictionary in many programming languages is just a set of value pairs, an index and its definition. The index is a representation of what the definition points to, or where it's supposed to be. If jump is defined as the act of leaping from the ground, then in a dictionary, the index is "jump", and the definition or value is "act of leaping from the ground", and in Python (the language I used to make this map), it would be written as such:
+
+```python
+        dict = {
+			"jump" = "act of leaping from the ground"
+        }
+```
+
+For my purposes, I desgined one ZoLa block to fit in one such dictionary. We are able to make the definition of a dictionary index yet **another** dictionary, meaning we can put dictionaries inside dictionaries. I made one borough to fit in these nested dictionaries, which I affectionately call "super dictionaries".  If each block dictionary looks like this:
+
+```python
+       	 block = {
+        "sum_area_sqft": 0,
+        "sum_units_res": 0,
+        "coords_list": [],
+        "density_acre": 0
+        }
+```
+
+then each borough "super-dictionary" looks like this:
+
+```python
+totaldict = {
+    block_1525: {
+        "sum_area_sqft": 0,
+        "sum_units_res": 0,
+        "coords_list": [],
+        "density_acre": 0
+    },
+    block_1526: {
+        "sum_area_sqft": 0,
+        "sum_units_res": 0,
+        "coords_list": [],
+        "density_acre": 0
+    }
+}
+```
+
+##### 2. The Calculations
+
+This super-data structure allows us to effectively store and organize our numbers on area and residential units, as well as the coordinates of the lots making up the block, quickly adding blocks to the super dictionary when we find a new block or adding area or units to the block when we find new lots.
+
+I made sure only the blocks we actually had in the dataset would be in the borough's super-dictionary with this function:
+
+```python
+def dict_block_checker(dict, block):
+    if block not in dict:
+        dict[block] = {
+        "sum_area_sqft": 0,
+        "sum_units_res": 0,
+        "coords_list": [],
+        "density_acre": 0
+        }
+```
+
+and did the actual counting, calculating, and density value processing with this sequence that goes through our .json file output and parses it:
+
+```python
+with open('../data/1-data.json') as f:
+    data = json.load(f)
+
+    for i in data['features']:
+
+        #check if block exists, make new dict entry if not
+        dict_block_checker(mnh_super_dict, i['properties']['block'])
+
+        #add to block area
+        mnh_super_dict[i['properties']['block']]["sum_area_sqft"] += i['properties']['lotarea']
+        
+        #add to block res unit count
+        mnh_super_dict[i['properties']['block']]["sum_units_res"] += i['properties']['unitsres'] 
+
+        #add to coordinate list
+        mnh_super_dict[i['properties']['block']]["coords_list"].append(i['geometry']['coordinates'][0][0])
+
+    #in a loop, calculate density by block in the super-dict
+    for i in mnh_super_dict.values():
+        i["density_acre"] = i["sum_units_res"] / (i["sum_area_sqft"] / 43560)
+```
+
+You will notice I have Manhattan-centric language in this snippet of code. This is not on accident, I am in fact lazy. I didn't want to make a super-super-data structure for the city as a whole, so I just went ahead and copied the code 5 times over for each borough. Hooray for laziness!
+
+##### 3. Color Coding
+
+I made 3 functions to define the values of each channel in the R-G-B color space: one for red, one for green, and one for blue. The mapping of density by color in a broad, easily visible color gradient is important, because density in NYC can vary WILDLY from 1-acre sized mansions in the outer Bronx to 68-story luxury apartment towers that fit in the space of half a block in downtown Queens. We need colors for all possible points of the density spectrum in New York.
+
+Each of these three functions take density as their sole parameter, and gives a particular color channel value in response to the density value, which can effectively range from 0 to around 1100, after which it appears as a vaguely increasingly bright pink.
+
+```python
+def draw_red(density):
+    if (density >= 0 and density <= 80):
+        return 1
+    elif (density > 80 and density <= 160):
+        return (2-(0.0125)*density)
+    elif (density > 160 and density <= 240):
+        return 0
+    elif (density > 240 and density <= 320):
+        return ((0.0125)*density-3)
+    elif (density > 320):
+        return 1
+
+def draw_green(density):
+    if (density >= 0 and density <= 80):
+        return (0.0125*density)
+    elif (density > 80 and density <= 160):
+        return 1
+    elif (density > 160 and density <= 240):
+        return (3-(0.0125)*density)
+    elif (density > 240 and density <= 320):
+        return 0
+    elif (density > 320 and density <= 400):
+        return (0.00625)*density-2
+    else:
+        return 0.75
+
+def draw_blue(density):
+    if (density >= 0 and density <= 160):
+        return 0
+    elif (density > 160 and density <= 240):
+        return ((0.0125)*density-2)
+    elif (density > 240):
+        return 1
+```
+
+The exact multipliers are meant to fit within the 0-1 color channel scale of our Python graphing tool: Matplotlib's Pyplot. Some other tools may use a 0-255 scale, but this one does not.
+
+##### 4. Plotting the Py
+
+Now for some Pyplot syntax! This isn't much more complicated than setting some settings, and turning numbers into points on a graph.
+
+I made sure the aspect ratio is 1:1 for latitude and latitude using **ax.set_aspect**.
+
+I then went ahead and added every x coordinate in the lot coordinate list into a set of plottable points in the x axis, did the same for every y coordinate. I filled in the lot with the density color, making sure that every block without residential units gets rendered without color, then repeated this for **all** lots in the block, then repeated **_ALL_** of that stuff for every block in the borough. (Each borough has this rendering process)
+```python
+    plt.figure()
+    ax = plt.gca()
+    ax.set_aspect('equal', adjustable='box')
+
+    #in a loop, render each block
+    for i in mnh_super_dict.values():
+        # print(i["density_acre"])    
+        for j in i["coords_list"]:
+            xs, ys = zip(*j)
+            if i["density_acre"] > 1:
+                plt.fill(xs,ys, color=(draw_red(i["density_acre"]), draw_green(i["density_acre"]), draw_blue(i["density_acre"])))
+            else: 
+                plt.fill(xs,ys, color=(0,0,0))
+```
+
+By the way, I am not very good at making this process efficient, so each borough map takes about 3 minutes to render, and the file for each render is already several megabytes. 
+
+This is why the following images are by the borough. I regret to inform that combining all the boroughs into one large image breaks most computers' image rendering software before it makes it to the screen.
+
+### The Results
+
+![Manhattan](/assets/images/2_manhattan.png)
+![Bronx](/assets/images/2_bronx.png)
+![Brooklyn](/assets/images/2_brooklyn.png)
+![Queens](/assets/images/2_queens.png)
+![Staten Island](/assets/images/2_staten.png)
+
+The first few things that may jump out at you are the white spaces for highways, and the black spaces for parks and... the middle of midtown Manhattan? Well, there are no houses in highways or parks, and definitely not in blocks devoted solely to business buildings, so I guess that makes sense. However, there are some other interesting things this map allows us to see...
+
+### About those Blocks...
+
 
 #### [Why don't you go back?](/..)
