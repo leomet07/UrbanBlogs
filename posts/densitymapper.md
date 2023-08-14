@@ -88,5 +88,24 @@ Some other buildings, such as those in the Bronx and Manhattan make this error, 
 
 Anyhow, there was also the thing of random parks melding themselves into blocks with actual residential density, causing the entire block to have what appeared to be an abysmal total density. At the same time, it also made it appear such that a park somehow had housing in it at all. I obviously wanted neither of these things, so wherever I could, I changed the block number of these parks to a different, unused one, to isolate them from the residential blocks they should never have been in in the first place.
 
+![Park Inclusion Error 1](/assets/images/2_fixarea1.jpg)
+![Park Inclusion Error 2](/assets/images/2_geojson_fixarea1.jpg)
+#### A Spring Creek block with parks included in it. It is calculated as below 20 housing units per acre.
+
+![Park Inclusion Fix 1](/assets/images/2_fixarea2.jpg)
+![Park Inclusion Fix 2](/assets/images/2_geojson_fixarea2.jpg)
+#### A Spring Creek block without the parks included in it. It is calculated as above 30 housing units per acre.
+
+This freed up some spaces that looked sparse and sprawly that were actually just adjacent to parks, increasing their appeared density.
+
+##### The Actual Code, I Guess
+
+As it goes with most technical projects, the code is 20% of the content and 80% of the work. Guess that CS degree will come in handy after all.
+
+The code, as it's completed now, appears quite simple. There are four major components to it: the central data structure, color coding, the calculations, and the rendering.
+
+#### 1. Our Central Data Structure: What is a Super-Dictionary?
+
+Let's start with a regular dictionary. Just like in any standard linguistic dictionary
 
 #### [Why don't you go back?](/..)
