@@ -1,14 +1,14 @@
 ---
-title: 'NYCDensityMapper - Showing the Patterns'
-description: "Using Python, SQL, and ZoLa, I made a map of NYC's housing density by the block, with some interesting results. See my process in creating it, and my personal thoughts!"
+title: 'NYCDensityMapper - Showing the Process'
+description: "Using Python, SQL, and ZoLa, I made a map of NYC's housing density by the block, with some interesting results. See my process in creating it!"
 ---
 
 #### [Why don't you go back?](/..)
 
 
-##### NYCDensityMapper - Showing the Patterns
+##### NYCDensityMapper - Showing the Process
 
-##### Using Python, SQL, and ZoLa, I made a map of NYC's housing density by the block, with some interesting results. See my creation process, and some thoughts on the changes happening--and the changes that should be happening--in New York's density.
+##### Using Python, SQL, and ZoLa, I made a map of NYC's housing density by the block, with some interesting results. See my creation process and methodology!
 
 ##### [Skip Here for the Maps](/posts/densitymapper/#the-results)
 ##### <a href="/posts/densitymapper/#the-results" >Skip Here for the Maps</a>
@@ -272,7 +272,8 @@ This is why the following images are by the borough. I regret to inform that com
 
 The first few things that may jump out at you are the white spaces for highways, and the black spaces for parks and... the middle of midtown Manhattan? Well, there are no houses in highways or parks, and definitely not in blocks devoted solely to business buildings, so I guess that makes sense. However, there are some other interesting things this map allows us to see...
 
-### About those Blocks...
+In the next article, which will be a part 2 to this one!
+Sorry... it is getting a little long....
 
 
 #### [Why don't you go back?](/..)
