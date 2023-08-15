@@ -10,6 +10,13 @@ description: "Using the NYC Density Maps I developed and walked through my creat
 
 ##### Using the NYC Density Maps I developed and walked through my creation of in my previous post, I give some thoughts on the patterns--and the changes that should be happening--in New York's density.
 
+![Manhattan](/assets/images/2_manhattan.png)
+![Bronx](/assets/images/2_bronx.png)
+![Brooklyn](/assets/images/2_brooklyn.png)
+![Queens](/assets/images/2_queens.png)
+![Staten Island](/assets/images/2_staten.png)
+#### NYC's residential density mapped by the block level.
+
 ### About those Blocks...
 
 ##### East Side Story
