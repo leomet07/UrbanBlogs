@@ -19,9 +19,17 @@ description: "Using the NYC Density Maps I developed and walked through my creat
 
 ### About those Blocks...
 
-##### East Side Story
 ##### Midtown's Black Hole
+-Office and commerical space dominates Midtown (two screenshots)
+-Suffers from usual business district syndrome: area is full of life and activity in the daytime, but by midnight, streets can be dead
+-Most of the office space lies unused, especially post-COVID
+-This should be replaced with housing
+-Mayor Adams & Gov. Hochul are working to cut red tape to build more housing here (poggers) (https://www.nyc.gov/office-of-the-mayor/news/022-23/mayor-adams-recommendations-convert-underused-offices-homes) (get quotes)
+
 ##### SoHo - Cast in Iron
+-Interesting density split in SoHo appears along West Broadway and along 
+-https://sohobroadway.org/soho-castironhistoricdistrict-landmarks/
+##### East Side Story
 
 ##### 1520 Sedgewick Avenue: When Density Fails
 ##### The Legacy of Moses (Bronx/Qns/SI Highway Mayhem)
